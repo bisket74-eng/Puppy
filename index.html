@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lisa's Boy Bichon Frise Master Hub & Countdown</title>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -33,6 +32,7 @@
                         rose: {
                             50: '#FFF1F2',
                             100: '#FFE4E6',
+                            200: '#FECDD3',
                             500: '#F43F5E',
                             600: '#E11D48'
                         }
@@ -50,12 +50,9 @@
         }
     </script>
 
-    <!-- Google Fonts: Fredoka & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -70,7 +67,6 @@
             letter-spacing: 0.02em;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -87,7 +83,7 @@
         }
 
         .glass-nav {
-            background: rgba(250, 248, 245, 0.9);
+            background: rgba(250, 248, 245, 0.92);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
@@ -95,7 +91,6 @@
 </head>
 <body class="min-h-screen text-slate-800 antialiased pb-20">
 
-    <!-- Sticky Glass Navigation Header -->
     <header class="sticky top-0 z-40 glass-nav border-b border-cream-200/80 shadow-sm transition-all">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -108,14 +103,13 @@
                 </div>
             </div>
 
-            <!-- Navigation Links -->
+            <!-- Navigation Bar -->
             <nav class="hidden md:flex items-center space-x-1 text-xs lg:text-sm font-semibold text-slate-600">
                 <a href="#countdown" class="px-3 py-2 hover:text-sage-700 hover:bg-sage-100/60 rounded-xl transition">Countdown</a>
-                <a href="#name-generator" class="px-3 py-2 hover:text-sage-700 hover:bg-sage-100/60 rounded-xl transition">Name Generator</a>
-                <a href="#timeline" class="px-3 py-2 hover:text-sage-700 hover:bg-sage-100/60 rounded-xl transition">1-Yr Timeline</a>
+                <a href="#name-picker" class="px-3 py-2 hover:text-sage-700 hover:bg-sage-100/60 rounded-xl transition">Name Picker</a>
+                <a href="#timeline" class="px-3 py-2 hover:text-sage-700 hover:bg-sage-100/60 rounded-xl transition">1-Yr Timeline & Photos</a>
                 <a href="#care-play" class="px-3 py-2 hover:text-sage-700 hover:bg-sage-100/60 rounded-xl transition">Care & Play</a>
                 <a href="#grooming-tips" class="px-3 py-2 hover:text-sage-700 hover:bg-sage-100/60 rounded-xl transition">Grooming</a>
-                <a href="#gallery" class="px-3 py-2 hover:text-sage-700 hover:bg-sage-100/60 rounded-xl transition">Bichon Gallery</a>
             </nav>
 
             <div class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sage-100 text-sage-800 text-xs font-bold border border-sage-200">
@@ -127,7 +121,6 @@
 
     <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 space-y-10">
 
-        <!-- SECTION 1: Countdown Hero Banner -->
         <section id="countdown" class="bg-gradient-to-br from-sage-800 via-sage-700 to-sage-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
             <div class="absolute -right-12 -bottom-12 opacity-10 text-white pointer-events-none">
                 <i class="fa-solid fa-bone text-[260px]"></i>
@@ -143,7 +136,7 @@
                     He is currently <strong class="text-white underline decoration-emerald-400">3 weeks old</strong> with his mother. In 5 weeks (35 days), he will be fully weaned and ready for Lisa's cuddles!
                 </p>
 
-                <!-- Countdown Units Grid -->
+                <!-- Countdown Timer Grid -->
                 <div class="grid grid-cols-4 gap-2 sm:gap-4 max-w-lg mb-8 text-center">
                     <div class="bg-white/10 backdrop-blur-md border border-white/15 p-3 sm:p-5 rounded-2xl shadow-inner">
                         <div id="cd-days" class="text-2xl sm:text-4xl font-extrabold font-display">35</div>
@@ -163,7 +156,7 @@
                     </div>
                 </div>
 
-                <!-- Custom Target Date Setting Toggle -->
+                <!-- Custom Date Picker -->
                 <div class="flex flex-wrap items-center gap-3 text-xs text-sage-200">
                     <span class="opacity-90 font-medium"><i class="fa-solid fa-calendar-day mr-1 text-emerald-300"></i> Target Date:</span>
                     <input type="date" id="target-date-picker" class="bg-white/15 text-white placeholder-sage-200 border border-white/20 rounded-xl px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-300 text-xs font-semibold cursor-pointer">
@@ -173,220 +166,305 @@
         </section>
 
 
-        <!-- SECTION 2: Name Generator Section (Compact Dropdowns) -->
-        <section id="name-generator" class="bg-white rounded-3xl p-6 sm:p-8 shadow-soft border border-cream-200">
+        <section id="name-picker" class="bg-white rounded-3xl p-6 sm:p-8 shadow-soft border border-cream-200">
             <div class="mb-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider mb-2">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> Compact Name Decider
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-bold uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-heart text-rose-500"></i> Lisa's Name Decider
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 font-display">Boy Bichon Name Generator</h2>
-                <p class="text-slate-500 text-sm mt-1">Select a category, pick a name from the dropdown, and tap the heart to save it to Lisa's Master List!</p>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 font-display">Boy Puppy Name Generator</h2>
+                <p class="text-slate-500 text-sm mt-1">Select a name from the dropdown and tap ❤️ to save it to Lisa's Hearted List! Need more ideas? Tap "Generate 25 More".</p>
             </div>
 
-            <!-- Dropdowns & Generator Controls Bar -->
+            <!-- Dropdown & Controls Bar -->
             <div class="bg-cream-50 p-5 sm:p-6 rounded-2xl border border-cream-200 mb-8 space-y-4">
-                
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
                     
-                    <!-- Dropdown 1: Category Selection -->
-                    <div class="md:col-span-4">
-                        <label for="cat-dropdown" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1">1. Choose Category:</label>
-                        <select id="cat-dropdown" onchange="onCategoryChange()" class="w-full bg-white border border-cream-300 text-slate-800 font-bold rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500 cursor-pointer shadow-sm">
-                            <option value="ALL">✨ All Categories (25 Names)</option>
-                            <option value="Nature">🚀 Nature & Cosmic</option>
-                            <option value="Quirky">🤪 Quirky & Crazy</option>
-                            <option value="Distinguished">🎩 Distinguished & Noble</option>
-                            <option value="Cute">🍩 Cute & Fluffy</option>
-                            <option value="French">🥐 French & Chic</option>
+                    <!-- Single Dropdown Menu -->
+                    <div class="md:col-span-6">
+                        <label for="boy-name-select" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5">Choose a Name Idea:</label>
+                        <select id="boy-name-select" class="w-full bg-white border border-cream-300 text-slate-800 font-bold rounded-xl px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-sage-500 cursor-pointer shadow-sm">
+                            <!-- Dynamically populated -->
                         </select>
                     </div>
 
-                    <!-- Dropdown 2: Name Picker -->
-                    <div class="md:col-span-5">
-                        <label for="name-dropdown" class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1">2. Pick a Name:</label>
-                        <select id="name-dropdown" class="w-full bg-white border border-cream-300 text-slate-800 font-bold rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500 cursor-pointer shadow-sm">
-                            <!-- Populated dynamically -->
-                        </select>
+                    <!-- Heart Selected Name Button -->
+                    <div class="md:col-span-3">
+                        <label class="block text-xs font-bold text-transparent mb-1.5">Action</label>
+                        <button onclick="heartSelectedDropdownName()" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold px-4 py-3 rounded-xl text-sm transition flex items-center justify-center gap-2 shadow-md shadow-rose-500/20 active:scale-95">
+                            <i class="fa-solid fa-heart"></i> Heart Name
+                        </button>
                     </div>
 
-                    <!-- Action: Heart Save Button -->
-                    <div class="md:col-span-3 flex items-end">
-                        <button onclick="saveSelectedDropdownName()" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold px-4 py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2 shadow-md shadow-rose-500/20 active:scale-95">
-                            <i class="fa-solid fa-heart"></i> Save to Master List
+                    <!-- Generate 25 More Button -->
+                    <div class="md:col-span-3">
+                        <label class="block text-xs font-bold text-transparent mb-1.5">Refresh</label>
+                        <button onclick="generate25MoreNames()" class="w-full bg-sage-600 hover:bg-sage-700 text-white font-bold px-4 py-3 rounded-xl text-sm transition flex items-center justify-center gap-2 shadow-md shadow-sage-600/20 active:scale-95">
+                            <i class="fa-solid fa-bolt text-amber-300"></i> Generate 25 More
                         </button>
                     </div>
 
                 </div>
 
-                <!-- Generate 25 New Names Button & Custom Add Input -->
+                <!-- Custom Name Input Row -->
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-cream-200">
-                    
-                    <button onclick="generate25NewNames()" class="w-full sm:w-auto bg-sage-600 hover:bg-sage-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-md shadow-sage-600/20 active:scale-95">
-                        <i class="fa-solid fa-bolt text-amber-300"></i> ⚡ Generate 25 New Names (5 per category)
-                    </button>
-
+                    <p class="text-xs text-slate-500">Have your own crazy name idea?</p>
                     <div class="flex items-center gap-2 w-full sm:w-auto">
-                        <input type="text" id="custom-add-input" placeholder="Add custom crazy name..." class="bg-white border border-cream-300 px-3 py-2 text-xs rounded-xl focus:outline-none focus:ring-2 focus:ring-sage-500 font-medium w-full sm:w-48">
-                        <button onclick="addCustomName()" class="bg-slate-800 hover:bg-slate-900 text-white px-3 py-2 rounded-xl font-bold text-xs transition whitespace-nowrap">
-                            + Add
+                        <input type="text" id="custom-name-input" placeholder="Type custom name..." class="bg-white border border-cream-300 px-3.5 py-2 text-xs rounded-xl focus:outline-none focus:ring-2 focus:ring-sage-500 font-medium w-full sm:w-56">
+                        <button onclick="addCustomHeartedName()" class="bg-slate-800 hover:bg-slate-900 text-white px-4 py-2 rounded-xl font-bold text-xs transition whitespace-nowrap">
+                            + Heart Custom
                         </button>
                     </div>
-
-                </div>
-
-            </div>
-
-            <!-- Interactive List of Current 25 Names Preview -->
-            <div class="mb-8">
-                <div class="flex items-center justify-between mb-3">
-                    <h3 id="current-list-title" class="text-sm font-bold text-slate-700 font-display uppercase tracking-wider">Currently Generated Names (25 Available)</h3>
-                    <span class="text-xs text-slate-400">Click <i class="fa-solid fa-heart text-rose-500"></i> on any name to save!</span>
-                </div>
-
-                <div id="names-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5">
-                    <!-- JavaScript populates name cards here -->
                 </div>
             </div>
 
-            <!-- Lisa's Master Saved List Card -->
-            <div class="bg-gradient-to-r from-cream-100 via-rose-50/50 to-sage-50/50 p-5 sm:p-6 rounded-2xl border border-cream-300">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-                    <div>
-                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2 font-display">
-                            <i class="fa-solid fa-trophy text-amber-500"></i> Lisa's Saved Master List
-                        </h3>
-                        <p class="text-xs text-slate-500">All favorited boy names are stored here. Rank your favorites or copy the list to share with friends!</p>
-                    </div>
-                    <button onclick="copyMasterList()" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-3.5 py-2 rounded-xl font-bold text-xs shadow-sm transition flex items-center gap-1.5 self-start sm:self-auto">
+            <!-- Hearted Names Grid (Shows ONLY Hearted Names) -->
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-slate-800 font-display flex items-center gap-2">
+                        <i class="fa-solid fa-heart text-rose-500"></i> Lisa's Hearted Master List
+                    </h3>
+                    <button onclick="copyHeartedList()" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-3 py-1.5 rounded-xl font-bold text-xs shadow-sm transition flex items-center gap-1.5">
                         <i class="fa-solid fa-copy text-sage-600"></i> Copy Saved List
                     </button>
                 </div>
 
-                <div id="master-saved-container" class="flex flex-wrap gap-2 min-h-[50px] items-center">
-                    <p class="text-xs text-slate-400 italic">No names saved yet! Pick a name from the dropdown above and click "Save to Master List".</p>
+                <!-- Container rendering hearted cards OR placeholder -->
+                <div id="hearted-names-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 min-h-[100px]">
+                    <!-- Dynamically rendered -->
                 </div>
             </div>
 
         </section>
 
 
-        <!-- SECTION 3: 1-Year Development Timeline -->
         <section id="timeline" class="bg-white rounded-3xl p-6 sm:p-8 shadow-soft border border-cream-200">
             <div class="mb-8">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-bold uppercase tracking-wider mb-2">
-                    <i class="fa-solid fa-timeline"></i> Growth Journey
+                    <i class="fa-solid fa-timeline"></i> Life Stages & Photos
                 </div>
                 <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 font-display">Puppy Development Timeline (Week 3 to 1 Year)</h2>
-                <p class="text-slate-500 text-sm mt-1">Track his milestones from a tiny 3-week puppy all the way to a full 1-year-old adult Bichon Frise powder-puff!</p>
+                <p class="text-slate-500 text-sm mt-1">Tap any photo thumbnail at each stage to enlarge and view full size!</p>
             </div>
 
-            <!-- Timeline Vertical Cards -->
-            <div class="relative border-l-2 border-sage-200 ml-3 sm:ml-6 space-y-8 pr-2">
+            <!-- Timeline Vertical Grid -->
+            <div class="relative border-l-2 border-sage-200 ml-3 sm:ml-6 space-y-10 pr-2">
 
-                <!-- Milestone: Week 3 (Current) -->
+                <!-- STAGE 1: Week 3 (Current) -->
                 <div class="relative pl-6 sm:pl-8">
                     <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-sage-600 text-white flex items-center justify-center font-bold text-xs ring-4 ring-white shadow-md">
                         <i class="fa-solid fa-eye"></i>
                     </div>
-                    <div class="bg-sage-50/90 border border-sage-200 rounded-2xl p-4 sm:p-5 shadow-sm">
-                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                    <div class="bg-sage-50/90 border border-sage-200 rounded-2xl p-5 shadow-sm">
+                        <div class="flex items-center justify-between gap-2 mb-2">
                             <span class="text-xs font-bold text-sage-800 uppercase tracking-wide">Week 3 • RIGHT NOW!</span>
                             <span class="px-2.5 py-0.5 rounded-full bg-sage-200 text-sage-900 text-[10px] font-extrabold uppercase">With Breeder</span>
                         </div>
                         <h3 class="text-lg font-bold text-slate-800 font-display">Eyes & Ears Open, Shaky First Steps</h3>
-                        <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                        <p class="text-slate-600 text-sm mt-1 mb-4 leading-relaxed">
                             His eyes and ear canals are now open! He is learning to walk on wobbly legs, wag his tiny tail, and play with his mother and littermates.
                         </p>
+
+                        <!-- Stage Photos (2 Thumbnails) -->
+                        <div class="pt-3 border-t border-sage-200/80">
+                            <span class="block text-[11px] font-bold uppercase tracking-wider text-sage-700 mb-2">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Week 3 Photos (Tap to Enlarge):
+                            </span>
+                            <div class="grid grid-cols-2 gap-3 sm:w-80">
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-sage-300 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1591160690555-5debfba289f0?auto=format&fit=crop&w=800&q=80', 'Week 3 Newborn Bichon Puppy - Tiny Eyes Opening')">
+                                    <img src="https://images.unsplash.com/photo-1591160690555-5debfba289f0?auto=format&fit=crop&w=400&q=80" alt="Week 3 Bichon Puppy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, 'Week 3 Puppy')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-sage-300 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=800&q=80', 'Week 3 Littermate Play - Wobbly Steps')">
+                                    <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=400&q=80" alt="Week 3 Puppy Litter" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, 'Week 3 Litter')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Milestone: Weeks 4-5 -->
+                <!-- STAGE 2: Weeks 4-5 -->
                 <div class="relative pl-6 sm:pl-8">
                     <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-xs ring-4 ring-white">
                         <i class="fa-solid fa-bowl-food"></i>
                     </div>
-                    <div class="bg-cream-50 border border-cream-200 rounded-2xl p-4 sm:p-5">
+                    <div class="bg-cream-50 border border-cream-200 rounded-2xl p-5">
                         <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Weeks 4 – 5</span>
                         <h3 class="text-lg font-bold text-slate-800 font-display">Weaning, Soft Food & Social Play</h3>
-                        <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                        <p class="text-slate-600 text-sm mt-1 mb-4 leading-relaxed">
                             Breeder introduces soft puppy gruel. First baby teeth emerge. Puppy plays actively, explores new sounds, and toddles around the puppy playpen.
                         </p>
+
+                        <!-- Stage Photos -->
+                        <div class="pt-3 border-t border-cream-200">
+                            <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-2">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Weeks 4-5 Photos (Tap to Enlarge):
+                            </span>
+                            <div class="grid grid-cols-2 gap-3 sm:w-80">
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-cream-300 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80', 'Week 4 Weaning Bichon Puppy')">
+                                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=400&q=80" alt="Week 4 Weaning Puppy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, 'Week 4 Weaning')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-cream-300 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=800&q=80', 'Week 5 Active Social Play')">
+                                    <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=400&q=80" alt="Week 5 Playful Puppy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, 'Week 5 Play')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Milestone: Week 8 (Homecoming) -->
+                <!-- STAGE 3: Week 8 (Homecoming Day) -->
                 <div class="relative pl-6 sm:pl-8">
                     <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs ring-4 ring-white shadow-md">
                         <i class="fa-solid fa-house-chimney-crack"></i>
                     </div>
-                    <div class="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-4 sm:p-5">
-                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                    <div class="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-5">
+                        <div class="flex items-center justify-between gap-2 mb-2">
                             <span class="text-xs font-bold text-emerald-800 uppercase tracking-wide">Week 8 • HOMECOMING DAY!</span>
                             <span class="px-2.5 py-0.5 rounded-full bg-emerald-200 text-emerald-900 text-[10px] font-extrabold uppercase">Pick Up Day</span>
                         </div>
                         <h3 class="text-lg font-bold text-slate-800 font-display">Bite Inhibition & Arriving at Lisa's House</h3>
-                        <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                        <p class="text-slate-600 text-sm mt-1 mb-4 leading-relaxed">
                             Fully weaned with learned bite inhibition! Receives first DHPP core vaccine and microchip. Crate training and potty housebreaking start immediately!
                         </p>
+
+                        <!-- Stage Photos -->
+                        <div class="pt-3 border-t border-emerald-200">
+                            <span class="block text-[11px] font-bold uppercase tracking-wider text-emerald-800 mb-2">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Week 8 Homecoming Photos (Tap to Enlarge):
+                            </span>
+                            <div class="grid grid-cols-2 gap-3 sm:w-80">
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-emerald-300 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80', 'Week 8 Arriving Home - First Day with Lisa')">
+                                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=400&q=80" alt="Week 8 Bichon Puppy" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, 'Week 8 Arrival')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-emerald-300 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80', 'Week 8 Fluffy Cuddles in Crate')">
+                                    <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=400&q=80" alt="Week 8 Fluffy Bichon" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, 'Week 8 Cuddles')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Milestone: Months 2-4 -->
+                <!-- STAGE 4: Months 3-5 -->
                 <div class="relative pl-6 sm:pl-8">
                     <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-xs ring-4 ring-white">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
-                    <div class="bg-cream-50 border border-cream-200 rounded-2xl p-4 sm:p-5">
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Months 2 – 4 (8-16 Weeks)</span>
-                        <h3 class="text-lg font-bold text-slate-800 font-display">Vaccinations, Cues & Socialization</h3>
-                        <p class="text-slate-600 text-sm mt-1 leading-relaxed">
-                            Follow-up core shots at 12 & 16 weeks (plus Rabies). Prime window for positive reinforcement obedience (sit, stay, recall) and friendly social encounters.
+                    <div class="bg-cream-50 border border-cream-200 rounded-2xl p-5">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Months 3 – 5 (12-20 Weeks)</span>
+                        <h3 class="text-lg font-bold text-slate-800 font-display">Teething, Vaccinations & Basic Cues</h3>
+                        <p class="text-slate-600 text-sm mt-1 mb-4 leading-relaxed">
+                            Teething begins; adult teeth emerge. Core shots completed at 12 & 16 weeks (plus Rabies). Prime window for leash training and simple commands (sit, stay, recall).
                         </p>
+
+                        <!-- Stage Photos -->
+                        <div class="pt-3 border-t border-cream-200">
+                            <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-2">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Months 3-5 Photos (Tap to Enlarge):
+                            </span>
+                            <div class="grid grid-cols-2 gap-3 sm:w-80">
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-cream-300 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=80', '4 Months Old - Teething and Learning Commands')">
+                                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=400&q=80" alt="4 Months Bichon" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, '4 Months Teething')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-cream-300 shadow-sm" onclick="openLightbox('https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=800&q=80', '5 Months - First Outdoor Lawn Walks')">
+                                    <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=400&q=80" alt="5 Months Outdoor" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, '5 Months Walk')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Milestone: Months 4-6 -->
-                <div class="relative pl-6 sm:pl-8">
-                    <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-xs ring-4 ring-white">
-                        <i class="fa-solid fa-scissors"></i>
-                    </div>
-                    <div class="bg-cream-50 border border-cream-200 rounded-2xl p-4 sm:p-5">
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Months 4 – 6</span>
-                        <h3 class="text-lg font-bold text-slate-800 font-display">Teething & First Professional Groom</h3>
-                        <p class="text-slate-600 text-sm mt-1 leading-relaxed">
-                            Adult teeth come in; provide soft rubber chew rings! Schedule his first official professional grooming haircut to familiarize him with blow dryers and scissors.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Milestone: Months 6-9 -->
+                <!-- STAGE 5: Months 6-9 -->
                 <div class="relative pl-6 sm:pl-8">
                     <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs ring-4 ring-white">
-                        <i class="fa-solid fa-bolt"></i>
+                        <i class="fa-solid fa-scissors"></i>
                     </div>
-                    <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-4 sm:p-5">
+                    <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-5">
                         <span class="text-xs font-bold text-amber-800 uppercase tracking-wide">Months 6 – 9</span>
-                        <h3 class="text-lg font-bold text-slate-800 font-display">Adolescence & Adult Coat Transition</h3>
-                        <p class="text-slate-600 text-sm mt-1 leading-relaxed">
-                            Teenager phase! Soft puppy fur transitions to dense adult double coat; line-brushing every 1-2 days prevents mats.
+                        <h3 class="text-lg font-bold text-slate-800 font-display">Adolescence & Adult Double Coat Transition</h3>
+                        <p class="text-slate-600 text-sm mt-1 mb-4 leading-relaxed">
+                            Teenager stage! Soft puppy fur changes to a thick, curly adult double coat. Daily line-brushing with a slicker brush prevents mats under arms and legs.
                         </p>
+
+                        <!-- Stage Photos -->
+                        <div class="pt-3 border-t border-amber-200">
+                            <span class="block text-[11px] font-bold uppercase tracking-wider text-amber-900 mb-2">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Months 6-9 Photos (Tap to Enlarge):
+                            </span>
+                            <div class="grid grid-cols-2 gap-3 sm:w-80">
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-amber-300 shadow-sm" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Bichon_Frise_Pet.jpg/800px-Bichon_Frise_Pet.jpg', '7 Months Bichon Adolescent Trim')">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Bichon_Frise_Pet.jpg/800px-Bichon_Frise_Pet.jpg" alt="7 Months Bichon" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, '7 Months Adolescent')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-amber-300 shadow-sm" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bichon_Frise_red_background.jpg/800px-Bichon_Frise_red_background.jpg', '9 Months - Fluffy Adult Coat Emerging')">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bichon_Frise_red_background.jpg/800px-Bichon_Frise_red_background.jpg" alt="9 Months Bichon" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, '9 Months Fluff')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Milestone: 1 Year (Adult) -->
+                <!-- STAGE 6: Month 12 (1 Year Adult) -->
                 <div class="relative pl-6 sm:pl-8">
                     <div class="absolute -left-[17px] top-0 w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-xs ring-4 ring-white shadow-md">
                         <i class="fa-solid fa-crown"></i>
                     </div>
-                    <div class="bg-purple-50/80 border border-purple-200 rounded-2xl p-4 sm:p-5">
-                        <div class="flex items-center justify-between gap-2 mb-1.5">
+                    <div class="bg-purple-50/80 border border-purple-200 rounded-2xl p-5">
+                        <div class="flex items-center justify-between gap-2 mb-2">
                             <span class="text-xs font-bold text-purple-800 uppercase tracking-wide">Month 12 • 1 YEAR OLD!</span>
                             <span class="px-2.5 py-0.5 rounded-full bg-purple-200 text-purple-900 text-[10px] font-extrabold uppercase">Full Adult</span>
                         </div>
                         <h3 class="text-lg font-bold text-slate-800 font-display">Mature Powder-Puff Companion</h3>
-                        <p class="text-slate-600 text-sm mt-1 leading-relaxed">
-                            Reaches full adult weight (~12-18 lbs). Majestic white double coat fully matured. Loving, confident, cheerful lifelong companion for Lisa!
+                        <p class="text-slate-600 text-sm mt-1 mb-4 leading-relaxed">
+                            Reaches full adult weight (~12-18 lbs). Majestic white double coat fully matured into the signature powder-puff shape. Loving, cheerful lifetime companion for Lisa!
                         </p>
+
+                        <!-- Stage Photos -->
+                        <div class="pt-3 border-t border-purple-200">
+                            <span class="block text-[11px] font-bold uppercase tracking-wider text-purple-900 mb-2">
+                                <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> 1 Year Adult Photos (Tap to Enlarge):
+                            </span>
+                            <div class="grid grid-cols-2 gap-3 sm:w-80">
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-purple-300 shadow-sm" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cheerful_Bichon_Frise.jpg/800px-Cheerful_Bichon_Frise.jpg', '1 Year Adult Bichon Frise - Full Powder-Puff')">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cheerful_Bichon_Frise.jpg/800px-Cheerful_Bichon_Frise.jpg" alt="1 Year Adult Bichon" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, '1 Year Adult')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                                <div class="group relative rounded-xl overflow-hidden aspect-square bg-slate-200 cursor-pointer border border-purple-300 shadow-sm" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Bichon_Frise_600.jpg/800px-Bichon_Frise_600.jpg', '1 Year Adult Bichon Standing Powderpuff')">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Bichon_Frise_600.jpg/800px-Bichon_Frise_600.jpg" alt="1 Year Standing Bichon" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="handleImgError(this, '1 Year Standing')">
+                                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold">
+                                        <i class="fa-solid fa-expand text-base"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -394,14 +472,13 @@
         </section>
 
 
-        <!-- SECTION 4: Care, Playtime & Exercise Calculator -->
         <section id="care-play" class="bg-white rounded-3xl p-6 sm:p-8 shadow-soft border border-cream-200">
             <div class="mb-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
                     <i class="fa-solid fa-paw"></i> Daily Activity & Care
                 </div>
                 <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 font-display">Playtime, Exercise & Toy Guide</h2>
-                <p class="text-slate-500 text-sm mt-1">Bichons have playful energy bursts but delicate growing joints as puppies. Follow the 5-minute rule!</p>
+                <p class="text-slate-500 text-sm mt-1">Bichons have cheerful energy bursts but growing puppy joints. Follow the 5-minute per month rule!</p>
             </div>
 
             <!-- Age Exercise Calculator Widget -->
@@ -471,7 +548,6 @@
         </section>
 
 
-        <!-- SECTION 5: Training & Grooming Master Tips -->
         <section id="grooming-tips" class="bg-white rounded-3xl p-6 sm:p-8 shadow-soft border border-cream-200">
             <div class="mb-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-xs font-bold uppercase tracking-wider mb-2">
@@ -483,7 +559,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                <!-- Column 1: Training & Housebreaking -->
+                <!-- Training Column -->
                 <div class="space-y-4">
                     <h3 class="text-lg font-bold text-slate-800 font-display border-b border-cream-200 pb-2 flex items-center gap-2">
                         <i class="fa-solid fa-dog text-sage-600"></i> Training & Socialization
@@ -508,7 +584,7 @@
                     </div>
                 </div>
 
-                <!-- Column 2: Coat Care & Grooming -->
+                <!-- Grooming Column -->
                 <div class="space-y-4">
                     <h3 class="text-lg font-bold text-slate-800 font-display border-b border-cream-200 pb-2 flex items-center gap-2">
                         <i class="fa-solid fa-scissors text-purple-600"></i> Grooming & Tear-Stain Prevention
@@ -537,78 +613,6 @@
         </section>
 
 
-        <!-- SECTION 6: Photo Gallery (100% Genuine Bichon Frise Photos) -->
-        <section id="gallery" class="bg-white rounded-3xl p-6 sm:p-8 shadow-soft border border-cream-200">
-            <div class="mb-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-bold uppercase tracking-wider mb-2">
-                    <i class="fa-solid fa-camera"></i> 100% Genuine Bichon Frise Photos
-                </div>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 font-display">Bichon Growth Photo Gallery</h2>
-                <p class="text-slate-500 text-sm mt-1">Verified photos of purebred white fluffy Bichon Frise dogs and puppies maturing from 3 weeks to 1 year adult!</p>
-            </div>
-
-            <!-- Gallery Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-                
-                <!-- Image 1: Cheerful Adult Bichon Frise -->
-                <div class="group relative rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm aspect-square" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cheerful_Bichon_Frise.jpg/800px-Cheerful_Bichon_Frise.jpg', 'Cheerful Adult Bichon Frise Powder-Puff')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cheerful_Bichon_Frise.jpg/800px-Cheerful_Bichon_Frise.jpg" alt="Cheerful Bichon Frise" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent opacity-0 group-hover:opacity-100 transition p-3 flex flex-col justify-end text-white">
-                        <span class="text-xs font-bold font-display">Purebred Bichon Frise</span>
-                        <p class="text-[11px] text-slate-200">Joyful demeanor, bright open smile.</p>
-                    </div>
-                </div>
-
-                <!-- Image 2: Classic Fluffy Cut -->
-                <div class="group relative rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm aspect-square" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/9/93/Bichon_Frise_1.jpg', 'Purebred Bichon Frise Portrait')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Bichon_Frise_1.jpg" alt="Bichon Frise Portrait" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent opacity-0 group-hover:opacity-100 transition p-3 flex flex-col justify-end text-white">
-                        <span class="text-xs font-bold font-display">Show Trim Bichon</span>
-                        <p class="text-[11px] text-slate-200">Dense white double coat.</p>
-                    </div>
-                </div>
-
-                <!-- Image 3: Bichon Frise Pet Cut -->
-                <div class="group relative rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm aspect-square" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Bichon_Frise_Pet.jpg/800px-Bichon_Frise_Pet.jpg', 'Bichon Frise Companion Pet Trim')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Bichon_Frise_Pet.jpg/800px-Bichon_Frise_Pet.jpg" alt="Bichon Frise Pet" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent opacity-0 group-hover:opacity-100 transition p-3 flex flex-col justify-end text-white">
-                        <span class="text-xs font-bold font-display">Pet Cut Style</span>
-                        <p class="text-[11px] text-slate-200">Cute teddy-bear look for daily play.</p>
-                    </div>
-                </div>
-
-                <!-- Image 4: Red Background Bichon -->
-                <div class="group relative rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm aspect-square" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bichon_Frise_red_background.jpg/800px-Bichon_Frise_red_background.jpg', 'Bel Air - Female Bichon Frise')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bichon_Frise_red_background.jpg/800px-Bichon_Frise_red_background.jpg" alt="Bichon Frise Bel Air" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent opacity-0 group-hover:opacity-100 transition p-3 flex flex-col justify-end text-white">
-                        <span class="text-xs font-bold font-display">Curious Expression</span>
-                        <p class="text-[11px] text-slate-200">Dark round eyes and black button nose.</p>
-                    </div>
-                </div>
-
-                <!-- Image 5: Older Adult Senior Trim -->
-                <div class="group relative rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm aspect-square" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bichon_Frise%2C_age_14.jpg/800px-Bichon_Frise%2C_age_14.jpg', 'Senior Bichon Frise in Common Pet Trim')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bichon_Frise%2C_age_14.jpg/800px-Bichon_Frise%2C_age_14.jpg" alt="Bichon Frise Senior" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent opacity-0 group-hover:opacity-100 transition p-3 flex flex-col justify-end text-white">
-                        <span class="text-xs font-bold font-display">Lifelong Companion</span>
-                        <p class="text-[11px] text-slate-200">Bichons live long, happy 12-15+ years!</p>
-                    </div>
-                </div>
-
-                <!-- Image 6: Standing Powderpuff -->
-                <div class="group relative rounded-2xl overflow-hidden bg-slate-100 cursor-pointer shadow-sm aspect-square" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Bichon_Frise_600.jpg/800px-Bichon_Frise_600.jpg', 'Full Standing Powderpuff Bichon Frise')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Bichon_Frise_600.jpg/800px-Bichon_Frise_600.jpg" alt="Standing Bichon Frise" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent opacity-0 group-hover:opacity-100 transition p-3 flex flex-col justify-end text-white">
-                        <span class="text-xs font-bold font-display">Powder-Puff Stance</span>
-                        <p class="text-[11px] text-slate-200">Feathery tail curled over the back.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- SECTION 7: Trusted External Resources -->
         <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-soft border border-cream-200">
             <div class="mb-6">
                 <h2 class="text-xl font-bold text-slate-800 font-display flex items-center gap-2">
@@ -655,15 +659,24 @@
 
     </main>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4" onclick="closeLightbox()">
-        <div class="relative max-w-3xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-700" onclick="event.stopPropagation()">
-            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white bg-black/60 hover:bg-black w-9 h-9 rounded-full flex items-center justify-center transition z-10">
-                <i class="fa-solid fa-xmark text-base"></i>
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 cursor-pointer" onclick="closeLightbox()">
+        <div class="relative max-w-3xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-700 text-center" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white bg-black/70 hover:bg-black w-10 h-10 rounded-full flex items-center justify-center transition z-10 border border-white/20">
+                <i class="fa-solid fa-xmark text-lg"></i>
             </button>
-            <img id="lightbox-img" src="" alt="Zoomed View" class="w-full max-h-[75vh] object-contain bg-black">
-            <div class="p-4 bg-slate-900 text-white">
-                <h4 id="lightbox-caption" class="font-bold text-base font-display"></h4>
+
+            <div class="p-2 bg-black/80 text-center">
+                <img id="lightbox-img" src="" alt="Full View" class="max-h-[70vh] mx-auto object-contain rounded-xl">
+            </div>
+
+            <div class="p-4 bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-slate-800">
+                <div class="text-left">
+                    <h4 id="lightbox-caption" class="font-bold text-sm sm:text-base font-display">Bichon Frise Photo</h4>
+                    <p class="text-xs text-slate-400 mt-0.5">Lisa's Boy Puppy Journey</p>
+                </div>
+                <button onclick="closeLightbox()" class="bg-sage-600 hover:bg-sage-700 text-white font-bold text-xs px-4 py-2 rounded-xl transition">
+                    Tap Anywhere to Close
+                </button>
             </div>
         </div>
     </div>
@@ -676,7 +689,7 @@
     <script>
         // 1. COUNTDOWN TIMER LOGIC
         let targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 35); // 5 weeks (35 days) from today
+        targetDate.setDate(targetDate.getDate() + 35); // Default: 5 weeks (35 days)
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -704,7 +717,6 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // Custom Target Date Picker Listener
         document.getElementById('target-date-picker').addEventListener('change', function(e) {
             if (e.target.value) {
                 targetDate = new Date(e.target.value + "T00:00:00");
@@ -720,248 +732,147 @@
         }
 
 
-        // 2. DYNAMIC NAME GENERATOR ENGINE
-        const CATEGORIES = ["Nature", "Quirky", "Distinguished", "Cute", "French"];
-
-        const NAME_POOLS = {
-            Nature: {
-                prefixes: ["Astro", "Cosmo", "Clover", "River", "Orion", "Zephyr", "Atlas", "Sky", "Blizzard", "Phoenix"],
-                suffixes: ["Bear", "Star", "Cloud", "Puff", "Breeze", "Storm", "Moon", "Leaf", "Frost", "Ridge"],
-                standalone: ["Cosmo", "Astro", "Clover", "River", "Orion", "Zephyr", "Atlas", "Summit", "Cedar", "Jasper", "Shadow", "Flurry"]
-            },
-            Quirky: {
-                prefixes: ["Professor", "Captain", "Sir", "Baron", "Doctor", "Sgt", "Uncle", "Mr"],
-                suffixes: ["Waffles", "Pickles", "Noodle", "Ziggy", "Gizmo", "Snoopy", "McFluff", "Bubbles", "Squeak", "Nugget"],
-                standalone: ["Professor Waffles", "Pickle", "Ziggy", "Gizmo", "Bandit", "Sprocket", "Doodle", "Banzai", "Pockets", "Scrappy", "Twinkie"]
-            },
-            Distinguished: {
-                prefixes: ["Duke", "Baron", "Winston", "Gatsby", "Archie", "Rupert", "Sterling", "Barnaby", "Kensington", "Hamilton"],
-                suffixes: ["The First", "Esquire", "Von Fluff", "Wellington", "Pebblesworth", "Kingsley"],
-                standalone: ["Winston", "Gatsby", "Archie", "Rupert", "Barnaby", "Kensington", "Sterling", "Hamilton", "Benedict", "Montgomery", "Harrison"]
-            },
-            Cute: {
-                prefixes: ["Milo", "Teddy", "Teddy", "Oliver", "Louie", "Charlie", "Mochi", "Biscuit", "Cannoli", "Peanut"],
-                suffixes: ["Bear", "Pup", "Bean", "Button", "Pie", "Pop", "Bites"],
-                standalone: ["Milo", "Teddy", "Oliver", "Louie", "Charlie", "Mochi", "Biscuit", "Cannoli", "Peanut", "Toto", "Toby", "Pip"]
-            },
-            French: {
-                prefixes: ["Pierre", "Marcel", "Beau", "Gaston", "Remy", "Henri", "Lumiere", "Pascal", "Antoine"],
-                suffixes: ["Petit", "Chou", "Nuage", "Blanc", "Croissant"],
-                standalone: ["Beau", "Pierre", "Marcel", "Remy", "Gaston", "Henri", "Lumiere", "Pascal", "Biscotti", "Bordeaux", "Jacques"]
-            }
+        // 2. NAME GENERATOR ENGINE (NO CATEGORIES)
+        const NAME_POOL_PARTS = {
+            firsts: [
+                "Milo", "Teddy", "Oliver", "Louie", "Charlie", "Beau", "Pierre", "Cosmo", "Archie", "Winston",
+                "Ziggy", "Gizmo", "Barnaby", "Jasper", "Remy", "Ollie", "Buster", "Murphy", "Cooper", "Biscotti",
+                "Peanut", "Mochi", "Clover", "Rupert", "Gatsby", "Bandit", "Sprocket", "Noodle", "Pickle", "Otis",
+                "Bentley", "Dexter", "Finn", "Felix", "Hugo", "Leo", "Mac", "Oscar", "Percy", "Quincy",
+                "Rory", "Sammy", "Toby", "Waldo", "Zeke", "Auggie", "Benny", "Cody", "Dash", "Elmo"
+            ],
+            titles: ["Sir", "Captain", "Baron", "Professor", "Duke", "Uncle", "Mr.", "Lord", "Prince", "Chef"],
+            seconds: ["Waffles", "Fluff", "Nugget", "Puff", "Paws", "Bean", "Button", "Breeze", "Bear", "McFluff", "Pickles", "Squeak"]
         };
 
-        let current25Names = [];
-        let savedMasterList = [];
+        let currentDropdownNames = [];
+        let heartedNames = [];
 
-        // Generate 5 names per category = 25 total
-        function generate25NewNames() {
-            current25Names = [];
+        function generate25MoreNames() {
+            const newNames = new Set();
 
-            CATEGORIES.forEach(cat => {
-                const pool = NAME_POOLS[cat];
-                const generatedSet = new Set();
+            while (newNames.size < 25) {
+                const rand = Math.random();
+                let candidate = "";
 
-                while (generatedSet.size < 5) {
-                    const randType = Math.random();
-                    let nameCandidate = "";
-
-                    if (randType < 0.5) {
-                        // Pick standalone
-                        nameCandidate = pool.standalone[Math.floor(Math.random() * pool.standalone.length)];
-                    } else if (randType < 0.8) {
-                        // Prefix + Standalone/Suffix
-                        const pref = pool.prefixes[Math.floor(Math.random() * pool.prefixes.length)];
-                        const suf = pool.suffixes[Math.floor(Math.random() * pool.suffixes.length)];
-                        nameCandidate = `${pref} ${suf}`;
-                    } else {
-                        // Standalone variation
-                        const base = pool.standalone[Math.floor(Math.random() * pool.standalone.length)];
-                        nameCandidate = `${base}`;
-                    }
-
-                    if (nameCandidate) {
-                        generatedSet.add(nameCandidate);
-                    }
+                if (rand < 0.6) {
+                    // Single name
+                    candidate = NAME_POOL_PARTS.firsts[Math.floor(Math.random() * NAME_POOL_PARTS.firsts.length)];
+                } else if (rand < 0.82) {
+                    // Title + First name (e.g. Captain Milo, Sir Teddy)
+                    const title = NAME_POOL_PARTS.titles[Math.floor(Math.random() * NAME_POOL_PARTS.titles.length)];
+                    const fn = NAME_POOL_PARTS.firsts[Math.floor(Math.random() * NAME_POOL_PARTS.firsts.length)];
+                    candidate = `${title} ${fn}`;
+                } else {
+                    // First + Second (e.g. Ollie Waffles, Milo Puff)
+                    const fn = NAME_POOL_PARTS.firsts[Math.floor(Math.random() * NAME_POOL_PARTS.firsts.length)];
+                    const sec = NAME_POOL_PARTS.seconds[Math.floor(Math.random() * NAME_POOL_PARTS.seconds.length)];
+                    candidate = `${fn} ${sec}`;
                 }
 
-                Array.from(generatedSet).forEach((n, idx) => {
-                    current25Names.push({
-                        id: Date.now() + Math.random(),
-                        name: n,
-                        category: cat
-                    });
-                });
-            });
+                if (candidate) {
+                    newNames.add(candidate);
+                }
+            }
 
-            // Refresh UI
-            populateCategoryDropdown();
-            renderNamesGrid();
+            currentDropdownNames = Array.from(newNames);
+            populateNameDropdown();
+            showToast("Generated 25 fresh boy names! ⚡");
         }
 
-        function populateCategoryDropdown() {
-            const catSelect = document.getElementById('cat-dropdown');
-            const selectedCat = catSelect.value; // 'ALL' or specific category
+        function populateNameDropdown() {
+            const select = document.getElementById('boy-name-select');
+            select.innerHTML = '';
 
-            const nameSelect = document.getElementById('name-dropdown');
-            nameSelect.innerHTML = '';
-
-            let filtered = current25Names;
-            if (selectedCat !== 'ALL') {
-                filtered = current25Names.filter(n => n.category === selectedCat);
-            }
-
-            if (filtered.length === 0) {
+            currentDropdownNames.forEach(name => {
                 const opt = document.createElement('option');
-                opt.value = "";
-                opt.innerText = "-- No names in this category --";
-                nameSelect.appendChild(opt);
-                return;
-            }
-
-            filtered.forEach(item => {
-                const opt = document.createElement('option');
-                opt.value = item.name;
-                opt.dataset.category = item.category;
-                opt.innerText = `[${item.category}] ${item.name}`;
-                nameSelect.appendChild(opt);
+                opt.value = name;
+                opt.innerText = name;
+                select.appendChild(opt);
             });
         }
 
-        function onCategoryChange() {
-            populateCategoryDropdown();
-            renderNamesGrid();
-        }
-
-        function saveSelectedDropdownName() {
-            const nameSelect = document.getElementById('name-dropdown');
-            const selectedName = nameSelect.value;
+        function heartSelectedDropdownName() {
+            const select = document.getElementById('boy-name-select');
+            const selectedName = select.value;
 
             if (!selectedName) return;
 
-            // Check if already saved
-            if (!savedMasterList.some(n => n.name.toLowerCase() === selectedName.toLowerCase())) {
-                const opt = nameSelect.options[nameSelect.selectedIndex];
-                const cat = opt ? opt.dataset.category || "Custom" : "Custom";
-                savedMasterList.push({ name: selectedName, category: cat, votes: 1 });
-                renderMasterSavedList();
-                showToast(`Saved "${selectedName}" to Lisa's Master List! ❤️`);
-            } else {
-                showToast(`"${selectedName}" is already in your saved list!`);
-            }
+            addNameToHearted(selectedName);
         }
 
-        function saveNameDirect(name, category) {
-            if (!savedMasterList.some(n => n.name.toLowerCase() === name.toLowerCase())) {
-                savedMasterList.push({ name: name, category: category || "Custom", votes: 1 });
-                renderMasterSavedList();
-                showToast(`Saved "${name}" to Master List! ❤️`);
-            } else {
-                showToast(`"${name}" is already saved!`);
-            }
-        }
-
-        function addCustomName() {
-            const input = document.getElementById('custom-add-input');
+        function addCustomHeartedName() {
+            const input = document.getElementById('custom-name-input');
             const val = input.value.trim();
             if (!val) return;
 
-            saveNameDirect(val, "Custom Idea");
+            addNameToHearted(val);
             input.value = '';
         }
 
-        function renderNamesGrid() {
-            const grid = document.getElementById('names-grid');
-            const catSelect = document.getElementById('cat-dropdown');
-            const selectedCat = catSelect.value;
+        function addNameToHearted(name) {
+            if (!heartedNames.some(n => n.toLowerCase() === name.toLowerCase())) {
+                heartedNames.push(name);
+                renderHeartedNamesGrid();
+                showToast(`Hearted "${name}"! ❤️`);
+            } else {
+                showToast(`"${name}" is already in your Hearted List!`);
+            }
+        }
+
+        function removeHeartedName(index) {
+            if (heartedNames[index]) {
+                const removed = heartedNames[index];
+                heartedNames.splice(index, 1);
+                renderHeartedNamesGrid();
+                showToast(`Removed "${removed}" from Hearted List.`);
+            }
+        }
+
+        function renderHeartedNamesGrid() {
+            const grid = document.getElementById('hearted-names-grid');
+
+            if (heartedNames.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full bg-cream-50 border-2 border-dashed border-cream-300 rounded-2xl p-6 text-center text-slate-400">
+                        <i class="fa-solid fa-heart-crack text-3xl mb-2 text-rose-300"></i>
+                        <p class="text-xs sm:text-sm font-semibold text-slate-600">No hearted names yet!</p>
+                        <p class="text-[11px] text-slate-400 mt-0.5">Select a name from the dropdown above and tap ❤️ to save it here.</p>
+                    </div>
+                `;
+                return;
+            }
 
             grid.innerHTML = '';
 
-            let filtered = current25Names;
-            if (selectedCat !== 'ALL') {
-                filtered = current25Names.filter(n => n.category === selectedCat);
-            }
-
-            document.getElementById('current-list-title').innerText = `Currently Generated Names (${filtered.length} Shown)`;
-
-            filtered.forEach(item => {
-                const isSaved = savedMasterList.some(s => s.name.toLowerCase() === item.name.toLowerCase());
-
+            heartedNames.forEach((name, index) => {
                 const card = document.createElement('div');
-                card.className = `p-3 rounded-2xl border transition relative flex items-center justify-between ${
-                    isSaved ? 'bg-rose-50 border-rose-300 ring-1 ring-rose-300' : 'bg-white border-cream-200 hover:border-sage-300 shadow-sm'
-                }`;
+                card.className = "bg-gradient-to-br from-rose-50/80 to-cream-50 border border-rose-200 rounded-2xl p-3.5 shadow-sm flex items-center justify-between transition hover:border-rose-400 hover:shadow-md";
 
                 card.innerHTML = `
-                    <div class="truncate mr-2">
-                        <span class="text-[9px] font-extrabold px-1.5 py-0.5 rounded-full inline-block mb-0.5 ${
-                            item.category === 'Quirky' ? 'bg-amber-100 text-amber-800' :
-                            item.category === 'Distinguished' ? 'bg-purple-100 text-purple-800' :
-                            item.category === 'Cute' ? 'bg-emerald-100 text-emerald-800' :
-                            item.category === 'French' ? 'bg-sky-100 text-sky-800' :
-                            'bg-teal-100 text-teal-800'
-                        }">${item.category}</span>
-                        <h4 class="font-bold text-slate-800 text-xs sm:text-sm font-display truncate">${item.name}</h4>
+                    <div class="flex items-center gap-2.5 truncate mr-1">
+                        <div class="w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-sm">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <span class="font-bold text-slate-800 text-sm font-display truncate">${name}</span>
                     </div>
 
-                    <button onclick="saveNameDirect('${item.name.replace(/'/g, "\\'")}', '${item.category}')" class="w-7 h-7 rounded-xl flex items-center justify-center transition flex-shrink-0 ${
-                        isSaved ? 'bg-rose-500 text-white' : 'bg-cream-100 text-slate-400 hover:bg-rose-50 hover:text-rose-500'
-                    }">
-                        <i class="fa-solid fa-heart text-xs"></i>
+                    <button onclick="removeHeartedName(${index})" title="Un-heart name" class="w-7 h-7 rounded-lg bg-white border border-rose-200 text-rose-400 hover:text-rose-600 hover:bg-rose-100 flex items-center justify-center text-xs transition flex-shrink-0">
+                        <i class="fa-solid fa-trash-can"></i>
                     </button>
                 `;
+
                 grid.appendChild(card);
             });
         }
 
-        function renderMasterSavedList() {
-            const container = document.getElementById('master-saved-container');
-            if (savedMasterList.length === 0) {
-                container.innerHTML = `<p class="text-xs text-slate-400 italic">No names saved yet! Pick a name from the dropdown above and click "Save to Master List".</p>`;
+        function copyHeartedList() {
+            if (heartedNames.length === 0) {
+                alert("Heart a few names first before copying!");
                 return;
             }
 
-            container.innerHTML = '';
-            savedMasterList.forEach((item, index) => {
-                const tag = document.createElement('div');
-                tag.className = "bg-white border border-rose-200 rounded-full px-3 py-1.5 flex items-center gap-2 shadow-sm text-xs font-bold text-slate-800";
-                tag.innerHTML = `
-                    <span class="text-rose-600 font-display"><i class="fa-solid fa-heart text-rose-500"></i> ${item.name}</span>
-                    <button onclick="upvoteSavedName(${index})" class="bg-rose-100 hover:bg-rose-200 text-rose-800 px-2 py-0.5 rounded-full text-[10px] font-extrabold transition">
-                        <i class="fa-solid fa-thumbs-up"></i> +1 (${item.votes})
-                    </button>
-                    <button onclick="removeSavedName(${index})" class="text-slate-400 hover:text-slate-600 ml-1 text-xs">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                `;
-                container.appendChild(tag);
-            });
-
-            renderNamesGrid();
-        }
-
-        function upvoteSavedName(index) {
-            if (savedMasterList[index]) {
-                savedMasterList[index].votes++;
-                savedMasterList.sort((a,b) => b.votes - a.votes);
-                renderMasterSavedList();
-            }
-        }
-
-        function removeSavedName(index) {
-            if (savedMasterList[index]) {
-                savedMasterList.splice(index, 1);
-                renderMasterSavedList();
-            }
-        }
-
-        function copyMasterList() {
-            if (savedMasterList.length === 0) {
-                alert("Save a few names first before copying!");
-                return;
-            }
-            const textToCopy = "Lisa's Saved Boy Bichon Names: " + savedMasterList.map(n => n.name).join(", ");
-            
+            const textToCopy = "Lisa's Hearted Boy Bichon Names: " + heartedNames.join(", ");
             const tempInput = document.createElement("input");
             tempInput.value = textToCopy;
             document.body.appendChild(tempInput);
@@ -969,7 +880,7 @@
             document.execCommand("copy");
             document.body.removeChild(tempInput);
 
-            showToast("Copied Lisa's Master Saved List to clipboard! 📋");
+            showToast("Copied Hearted Names to clipboard! 📋");
         }
 
         function showToast(msg) {
@@ -998,9 +909,14 @@
             }
         }
 
-        // 4. LIGHTBOX MODAL LOGIC
+
+        // 4. IMAGE LIGHTBOX MODAL & FAILSAFE ERROR HANDLER
         function openLightbox(imgUrl, caption) {
-            document.getElementById('lightbox-img').src = imgUrl;
+            const img = document.getElementById('lightbox-img');
+            img.src = imgUrl;
+            img.onerror = function() {
+                handleImgError(img, caption);
+            };
             document.getElementById('lightbox-caption').innerText = caption;
             const modal = document.getElementById('lightbox-modal');
             modal.classList.remove('hidden');
@@ -1013,9 +929,18 @@
             modal.classList.remove('flex');
         }
 
-        // Initialize App
+        // Failsafe SVG image generator if an external image fails to load
+        function handleImgError(imgElement, altText) {
+            imgElement.onerror = null;
+            const text = encodeURIComponent(altText || "Bichon Frise");
+            imgElement.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%232D5A43"/><circle cx="200" cy="170" r="100" fill="%23FAF8F5"/><circle cx="165" cy="150" r="12" fill="%231E293B"/><circle cx="235" cy="150" r="12" fill="%231E293B"/><ellipse cx="200" cy="180" rx="16" ry="10" fill="%231E293B"/><path d="M 180 195 Q 200 215 220 195" stroke="%231E293B" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="120" cy="120" r="40" fill="%23FFFFFF"/><circle cx="280" cy="120" r="40" fill="%23FFFFFF"/><text x="200" y="330" font-family="sans-serif" font-size="18" font-weight="bold" fill="%23FAF8F5" text-anchor="middle">${text}</text></svg>`;
+        }
+
+
+        // Initialize App on load
         window.onload = function() {
-            generate25NewNames();
+            generate25MoreNames();
+            renderHeartedNamesGrid();
         }
     </script>
 </body>
