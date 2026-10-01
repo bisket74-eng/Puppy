@@ -1,409 +1,243 @@
-
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lisa's Baby Boy Bichon Frise Hub</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ivory: {
-                            100: '#FDFBF7',
-                            200: '#F6F3EC',
-                            300: '#EAE5D9',
-                        },
-                        slate: {
-                            800: '#2C3539',
-                            900: '#1A1F22',
-                        },
-                        taupe: {
-                            500: '#8C7A6B',
-                            600: '#736254',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Inter"', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        body {
-            background-color: #FDFBF7;
-            color: #2C3539;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Elegant scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #EAE5D9; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #8C7A6B; }
-        
-        .border-elegant {
-            border: 1px solid #EAE5D9;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lisa's Bichon Puppy Hub</title>
+<style>
+:root{
+  --sky:#2F80C9; --sky-l:#DCEEFB;
+  --sun:#FFC83D; --sun-l:#FFF3CC;
+  --coral:#F2705C; --coral-l:#FDE3DE;
+  --mint:#3DB38C; --mint-l:#D8F3E8;
+  --ink:#22303C; --paper:#FFFDF8; --line:#E7E1D3;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5;padding-bottom:3rem}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2}
+a{color:var(--sky)}
+header{background:var(--sky);color:#fff;padding:1.4rem 1.2rem 1.2rem;text-align:center}
+header h1{font-size:1.9rem}
+header p{opacity:.92;margin-top:.3rem}
+nav{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;padding:.7rem;background:var(--sun-l);position:sticky;top:0;z-index:5;border-bottom:2px solid var(--sun)}
+nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.9rem;padding:.4rem .8rem;border-radius:99px;background:#fff;border:1px solid var(--line)}
+main{max-width:720px;margin:0 auto;padding:0 1rem}
+section{margin-top:2rem}
+h2{font-size:1.6rem;margin-bottom:.8rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.1rem}
+/* countdown */
+.count{background:var(--coral-l);border-color:var(--coral)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin:1rem 0;text-align:center}
+.grid4 div{background:#fff;border-radius:12px;padding:.7rem .2rem}
+.grid4 b{display:block;font-family:Georgia,serif;font-size:2rem;color:var(--coral)}
+.grid4 span{font-size:.75rem}
+label{font-weight:600;font-size:.9rem}
+input[type=date],select{font:inherit;padding:.6rem;border:2px solid var(--line);border-radius:10px;background:#fff;max-width:100%}
+button{font:inherit;font-weight:600;border:0;border-radius:10px;padding:.7rem 1rem;cursor:pointer;color:#fff;background:var(--sky)}
+button.alt{background:var(--sun);color:var(--ink)}
+button.go{background:var(--coral)}
+button:active{transform:scale(.97)}
+/* names */
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0 1rem}
+.chip{background:#fff;color:var(--ink);border:2px solid var(--line);padding:.4rem .8rem;border-radius:99px;font-size:.88rem}
+.chip.on{background:var(--mint);border-color:var(--mint);color:#fff}
+.names{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin-bottom:1rem}
+.name{display:flex;justify-content:space-between;align-items:center;background:var(--sky-l);border-radius:12px;padding:.6rem .8rem;font-weight:600;font-size:1.05rem}
+.name button{background:none;color:var(--coral);font-size:1.4rem;padding:0 .2rem}
+.faves{background:var(--mint-l);border-radius:12px;padding:.8rem;margin-top:1rem}
+.faves h3{font-size:1.15rem;margin-bottom:.5rem}
+.fave{display:inline-flex;gap:.3rem;align-items:center;background:#fff;border-radius:99px;padding:.3rem .5rem .3rem .8rem;margin:.2rem;font-weight:600}
+.fave button{background:none;color:var(--ink);padding:0 .3rem;font-size:1.1rem}
+.empty{font-size:.9rem;color:#5b6b78}
+/* stages */
+.stage{display:flex;gap:.9rem;margin-bottom:.9rem;border-left:8px solid var(--c);}
+.stage .emoji{font-size:2rem}
+.stage h3{font-size:1.15rem}
+.stage small{font-weight:700;color:var(--c)}
+.stage p{font-size:.92rem;margin:.25rem 0 .5rem}
+.stage a{font-size:.88rem;font-weight:600}
+/* care */
+.two{display:grid;gap:.8rem;margin-top:.8rem}
+@media(min-width:560px){.two{grid-template-columns:1fr 1fr}}
+.walk{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin-top:.7rem}
+#walk{font-family:Georgia,serif;font-size:1.3rem;color:var(--mint);font-weight:700}
+.links{list-style:none;padding:0;display:grid;gap:.6rem}
+.links li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:.8rem}
+.links a{font-weight:700}
+.links p{font-size:.88rem;margin-top:.15rem}
+footer{text-align:center;font-size:.85rem;color:#5b6b78;margin-top:2.5rem;padding:0 1rem}
+</style>
 </head>
-<body class="min-h-screen pb-20">
+<body>
+<header>
+  <h1>🐶 Lisa's Bichon Puppy</h1>
+  <p>Baby boy, 3 weeks old</p>
+</header>
+<nav><a href="#home">Countdown</a><a href="#names">Names</a><a href="#grow">Growing up</a><a href="#care">Care</a><a href="#links">Questions?</a></nav>
 
-    <header class="sticky top-0 z-40 bg-ivory-100/90 backdrop-blur-md border-b border-ivory-300">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-                <h1 class="text-2xl sm:text-3xl font-serif font-semibold text-slate-900 tracking-tight">Lisa's Bichon Hub</h1>
-                <p class="text-xs font-sans font-medium text-taupe-500 uppercase tracking-widest mt-1">Boy Puppy • 3 Weeks Old</p>
-            </div>
-            <nav class="flex items-center gap-4 text-xs font-sans font-medium text-slate-600 tracking-wide">
-                <a href="#countdown" class="hover:text-taupe-600 transition">Countdown</a>
-                <a href="#names" class="hover:text-taupe-600 transition">Names</a>
-                <a href="#timeline" class="hover:text-taupe-600 transition">Timeline</a>
-                <a href="#care" class="hover:text-taupe-600 transition">Care</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="max-w-4xl mx-auto px-6 pt-10 space-y-16">
-
-        <section id="countdown" class="text-center space-y-6">
-            <h2 class="text-4xl sm:text-5xl font-serif font-semibold text-slate-900 tracking-tight">The Arrival</h2>
-            <p class="text-sm sm:text-base font-sans text-slate-600 max-w-xl mx-auto leading-relaxed">
-                He is currently <span class="italic text-taupe-600">3 weeks old</span>. In exactly 5 weeks, his weaning will be complete and he will be ready to come home.
-            </p>
-
-            <div class="grid grid-cols-4 gap-4 sm:gap-8 max-w-2xl mx-auto pt-6 border-t border-elegant">
-                <div class="flex flex-col items-center">
-                    <span id="cd-days" class="text-4xl sm:text-6xl font-serif font-normal text-slate-900">35</span>
-                    <span class="text-[10px] sm:text-xs font-sans uppercase tracking-widest text-taupe-500 mt-2">Days</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span id="cd-hours" class="text-4xl sm:text-6xl font-serif font-normal text-slate-900">00</span>
-                    <span class="text-[10px] sm:text-xs font-sans uppercase tracking-widest text-taupe-500 mt-2">Hours</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span id="cd-mins" class="text-4xl sm:text-6xl font-serif font-normal text-slate-900">00</span>
-                    <span class="text-[10px] sm:text-xs font-sans uppercase tracking-widest text-taupe-500 mt-2">Minutes</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span id="cd-secs" class="text-4xl sm:text-6xl font-serif font-normal text-slate-900">00</span>
-                    <span class="text-[10px] sm:text-xs font-sans uppercase tracking-widest text-taupe-500 mt-2">Seconds</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="names" class="pt-10 border-t border-elegant">
-            <div class="mb-8 text-center">
-                <h2 class="text-3xl font-serif font-semibold text-slate-900">Nomenclature</h2>
-                <p class="text-sm font-sans text-slate-600 mt-2">Select and curate elegant names for the young gentleman.</p>
-            </div>
-
-            <div class="bg-white p-6 sm:p-8 border border-elegant shadow-sm max-w-2xl mx-auto">
-                <div class="flex flex-col sm:flex-row gap-4 items-end">
-                    <div class="flex-1 w-full">
-                        <label for="boy-name-select" class="block text-[11px] font-sans font-semibold text-taupe-600 uppercase tracking-widest mb-2">Select a Name</label>
-                        <select id="boy-name-select" class="w-full bg-ivory-100 border border-elegant text-slate-900 font-sans px-4 py-3 text-sm focus:outline-none focus:border-taupe-500 transition rounded-none appearance-none cursor-pointer">
-                            <!-- Populated via JS -->
-                        </select>
-                    </div>
-                    <button onclick="heartSelectedName()" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-sans font-medium px-6 py-3 text-sm transition tracking-wide flex items-center justify-center gap-2">
-                        <i class="fa-regular fa-heart"></i> Heart Name
-                    </button>
-                    <button onclick="generate25MoreNames()" class="w-full sm:w-auto border border-slate-900 hover:bg-ivory-200 text-slate-900 font-sans font-medium px-6 py-3 text-sm transition tracking-wide flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-rotate-right"></i> Generate 25 More
-                    </button>
-                </div>
-
-                <div class="mt-10">
-                    <h3 class="text-lg font-serif text-slate-900 mb-4 pb-2 border-b border-elegant">Lisa's Hearted Names</h3>
-                    <!-- Hearted names grid -->
-                    <div id="hearted-names-list" class="grid grid-cols-2 sm:grid-cols-3 gap-3 min-h-[60px]">
-                        <!-- Dynamic content -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="timeline" class="pt-10 border-t border-elegant">
-            <div class="mb-10 text-center">
-                <h2 class="text-3xl font-serif font-semibold text-slate-900">Development Stages</h2>
-                <p class="text-sm font-sans text-slate-600 mt-2">A visual guide to his maturation over the first year. <br/> <span class="italic text-taupe-600">Tap any portrait to view in full size.</span></p>
-            </div>
-
-            <div class="max-w-2xl mx-auto space-y-12">
-                
-                <!-- Stage 1: Week 3 -->
-                <div class="flex flex-col sm:flex-row gap-6 items-start">
-                    <div class="sm:w-1/3 pt-1">
-                        <h4 class="font-sans font-semibold text-xs tracking-widest text-taupe-600 uppercase">Week 3</h4>
-                        <h3 class="font-serif text-xl text-slate-900 mt-1">Eyes Open</h3>
-                        <p class="font-sans text-sm text-slate-600 mt-2 leading-relaxed">His eyes and ear canals are now open. He takes shaky first steps and begins interacting with littermates.</p>
-                    </div>
-                    <div class="sm:w-2/3 grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1591160690555-5debfba289f0?w=500&q=80" alt="3 Week Bichon" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=500&q=80" alt="3 Week Bichon" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                    </div>
-                </div>
-
-                <!-- Stage 2: Weeks 4-5 -->
-                <div class="flex flex-col sm:flex-row gap-6 items-start">
-                    <div class="sm:w-1/3 pt-1">
-                        <h4 class="font-sans font-semibold text-xs tracking-widest text-taupe-600 uppercase">Weeks 4–5</h4>
-                        <h3 class="font-serif text-xl text-slate-900 mt-1">Weaning & Play</h3>
-                        <p class="font-sans text-sm text-slate-600 mt-2 leading-relaxed">The introduction to soft food begins. He toddles actively and learns vital social cues from play.</p>
-                    </div>
-                    <div class="sm:w-2/3 grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=500&q=80" alt="4 Week Bichon" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=500&q=80" alt="5 Week Bichon" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                    </div>
-                </div>
-
-                <!-- Stage 3: Week 8 -->
-                <div class="flex flex-col sm:flex-row gap-6 items-start">
-                    <div class="sm:w-1/3 pt-1">
-                        <h4 class="font-sans font-semibold text-xs tracking-widest text-taupe-600 uppercase">Week 8</h4>
-                        <h3 class="font-serif text-xl text-slate-900 mt-1">Homecoming</h3>
-                        <p class="font-sans text-sm text-slate-600 mt-2 leading-relaxed">Fully weaned with learned bite inhibition. Ready for crate training and housebreaking at Lisa's home.</p>
-                    </div>
-                    <div class="sm:w-2/3 grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?w=500&q=80" alt="8 Week Bichon" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                        <img src="https://images.unsplash.com/photo-1555661059-7e755c1c3c77?w=500&q=80" alt="8 Week Bichon" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                    </div>
-                </div>
-
-                <!-- Stage 4: Months 3-5 -->
-                <div class="flex flex-col sm:flex-row gap-6 items-start">
-                    <div class="sm:w-1/3 pt-1">
-                        <h4 class="font-sans font-semibold text-xs tracking-widest text-taupe-600 uppercase">Months 3–5</h4>
-                        <h3 class="font-serif text-xl text-slate-900 mt-1">Teething</h3>
-                        <p class="font-sans text-sm text-slate-600 mt-2 leading-relaxed">Adult teeth emerge. A crucial window for leash training and mastering foundational commands.</p>
-                    </div>
-                    <div class="sm:w-2/3 grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1629898254054-d8906913a45c?w=500&q=80" alt="4 Month Bichon" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&q=80" alt="5 Month Bichon" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                    </div>
-                </div>
-
-                <!-- Stage 5: Months 6-9 -->
-                <div class="flex flex-col sm:flex-row gap-6 items-start">
-                    <div class="sm:w-1/3 pt-1">
-                        <h4 class="font-sans font-semibold text-xs tracking-widest text-taupe-600 uppercase">Months 6–9</h4>
-                        <h3 class="font-serif text-xl text-slate-900 mt-1">Coat Transition</h3>
-                        <p class="font-sans text-sm text-slate-600 mt-2 leading-relaxed">Puppy fluff transitions to the dense, curly double coat. Daily slicker brushing is absolutely essential.</p>
-                    </div>
-                    <div class="sm:w-2/3 grid grid-cols-2 gap-4">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Bichon_Frise_Pet.jpg/800px-Bichon_Frise_Pet.jpg" alt="7 Month Bichon" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bichon_Frise_red_background.jpg/800px-Bichon_Frise_red_background.jpg" alt="9 Month Bichon" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                    </div>
-                </div>
-
-                <!-- Stage 6: 1 Year Adult -->
-                <div class="flex flex-col sm:flex-row gap-6 items-start">
-                    <div class="sm:w-1/3 pt-1">
-                        <h4 class="font-sans font-semibold text-xs tracking-widest text-taupe-600 uppercase">1 Year</h4>
-                        <h3 class="font-serif text-xl text-slate-900 mt-1">Mature Adult</h3>
-                        <p class="font-sans text-sm text-slate-600 mt-2 leading-relaxed">He reaches his full adult weight (12-18 lbs) with a majestic powder-puff silhouette.</p>
-                    </div>
-                    <div class="sm:w-2/3 grid grid-cols-2 gap-4">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Cheerful_Bichon_Frise.jpg/800px-Cheerful_Bichon_Frise.jpg" alt="1 Year Bichon" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Bichon_Frise_600.jpg/800px-Bichon_Frise_600.jpg" alt="1 Year Bichon Standing" class="w-full aspect-square object-cover border border-elegant cursor-pointer hover:opacity-80 transition" onclick="openLightbox(this.src)">
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="care" class="pt-10 border-t border-elegant">
-            <div class="mb-10 text-center">
-                <h2 class="text-3xl font-serif font-semibold text-slate-900">Care & Regimen</h2>
-                <p class="text-sm font-sans text-slate-600 mt-2">Essential guidelines for a healthy development.</p>
-            </div>
-
-            <div class="max-w-2xl mx-auto space-y-8">
-                <div class="bg-white p-6 border border-elegant">
-                    <h3 class="font-serif text-xl text-slate-900 mb-3 border-b border-elegant pb-2">The 5-Minute Exercise Rule</h3>
-                    <p class="font-sans text-sm text-slate-600 mb-4 leading-relaxed">
-                        To protect growing joint plates, structured pavement walks should be limited to <strong>5 minutes per month of age</strong>, up to twice daily. Free play in the house or yard is self-regulating and does not count toward this limit.
-                    </p>
-                    <div class="flex items-center gap-4 bg-ivory-100 p-4 border border-elegant">
-                        <label for="age-select" class="font-sans text-xs tracking-widest text-taupe-600 uppercase font-semibold">Puppy Age:</label>
-                        <select id="age-select" onchange="calculateExercise()" class="bg-white border border-elegant text-slate-900 text-sm px-3 py-1 focus:outline-none">
-                            <option value="2">8 Weeks (2 Months)</option>
-                            <option value="3">3 Months</option>
-                            <option value="4">4 Months</option>
-                            <option value="5">5 Months</option>
-                            <option value="6">6 Months</option>
-                            <option value="12">1 Year (Adult)</option>
-                        </select>
-                        <div id="exercise-result" class="ml-auto font-serif text-lg text-slate-900">
-                            10 Mins / Walk
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 border border-elegant">
-                        <h3 class="font-serif text-lg text-slate-900 mb-2">Tear-Stain Prevention</h3>
-                        <p class="font-sans text-sm text-slate-600 leading-relaxed">
-                            Bichon fur vividly shows tear stains. Utilize stainless steel or ceramic water bowls, provide filtered water, and gently wipe the eye area daily with a saline solution to maintain a pristine white coat.
-                        </p>
-                    </div>
-                    <div class="bg-white p-6 border border-elegant">
-                        <h3 class="font-serif text-lg text-slate-900 mb-2">Separation Independence</h3>
-                        <p class="font-sans text-sm text-slate-600 leading-relaxed">
-                            As a companion breed, they are prone to anxiety. Begin crate training early. Practice leaving the room for 1-5 minutes frequently so he learns independence and trust in your return.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div id="lightbox" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-4 cursor-pointer" onclick="closeLightbox()">
-        <span class="absolute top-6 right-8 text-white font-sans text-sm tracking-widest uppercase opacity-60">Tap anywhere to close</span>
-        <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[85vh] object-contain shadow-2xl border border-white/10" onclick="event.stopPropagation()">
+<main>
+<section id="home">
+  <div class="card count">
+    <h2>Days until he comes home</h2>
+    <p>He is 3 weeks old now. Weaning takes about 5 more weeks, then he's ready to go home.</p>
+    <div class="grid4">
+      <div><b id="d">--</b><span>days</span></div>
+      <div><b id="h">--</b><span>hours</span></div>
+      <div><b id="m">--</b><span>min</span></div>
+      <div><b id="s">--</b><span>sec</span></div>
     </div>
+    <label for="date">Go-home date</label><br>
+    <input type="date" id="date">
+  </div>
+</section>
 
-    <footer class="mt-20 py-8 border-t border-elegant text-center">
-        <p class="text-xs font-sans text-slate-500 uppercase tracking-widest">Designed for Lisa's Bichon Frise</p>
-    </footer>
+<section id="names">
+  <h2>Name finder</h2>
+  <div class="card">
+    <p>Pick a style, then tap Get names. Tap ♡ to save one.</p>
+    <div class="chips" id="chips"></div>
+    <div class="names" id="out"></div>
+    <button class="go" id="gen">🎲 Get 10 new names</button>
+    <div class="faves">
+      <h3>Lisa's favorites</h3>
+      <div id="faves"></div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // 1. COUNTDOWN LOGIC
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 35); // 5 weeks
+<section id="grow">
+  <h2>How he'll grow</h2>
+  <div id="stages"></div>
+  <p class="empty">Tap "See photos" to open real Bichon puppy pictures at each age.</p>
+</section>
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+<section id="care">
+  <h2>Care basics</h2>
+  <div class="card">
+    <h3>Walk time</h3>
+    <p>A common rule: about 5 minutes of walking per month of age, up to twice a day. Playing at home doesn't count.</p>
+    <div class="walk">
+      <label for="age">Age:</label>
+      <select id="age">
+        <option value="2">8 weeks</option><option value="3">3 months</option><option value="4">4 months</option>
+        <option value="5">5 months</option><option value="6">6 months</option><option value="12">1 year +</option>
+      </select>
+      <span id="walk"></span>
+    </div>
+  </div>
+  <div class="two">
+    <div class="card" style="background:var(--sun-l)"><h3>Tear stains</h3><p>White fur shows stains easily. Wipe around the eyes daily with a soft damp cloth and use clean, filtered water.</p></div>
+    <div class="card" style="background:var(--sky-l)"><h3>Alone time</h3><p>Bichons love company. Start crate training early and practice short breaks, a few minutes at a time.</p></div>
+    <div class="card" style="background:var(--coral-l)"><h3>Grooming</h3><p>That curly coat tangles. Brush a little every day and plan on regular professional trims.</p></div>
+    <div class="card" style="background:var(--mint-l)"><h3>Vet visits</h3><p>Ask the breeder or vet about a shot schedule and when he can safely meet other dogs.</p></div>
+  </div>
+</section>
 
-            if (distance < 0) return;
+<section id="links">
+  <h2>Have questions?</h2>
+  <ul class="links">
+    <li><a href="https://www.akc.org/dog-breeds/bichon-frise/" target="_blank" rel="noopener">American Kennel Club: Bichon Frise</a><p>Breed facts, health, training and grooming.</p></li>
+    <li><a href="https://www.bichon.org" target="_blank" rel="noopener">Bichon Frise Club of America</a><p>The national breed club, with owner resources and rescue info.</p></li>
+    <li><a href="https://www.vcahospitals.com/know-your-pet/puppy-care" target="_blank" rel="noopener">VCA Animal Hospitals: Puppy care</a><p>Vet-written guides on feeding, shots and training.</p></li>
+    <li><a href="https://www.aspca.org/pet-care/dog-care" target="_blank" rel="noopener">ASPCA: Dog care</a><p>General tips on safety, behavior and new-dog basics.</p></li>
+  </ul>
+  <p class="empty" style="margin-top:.6rem">General info only. Your vet is the best source for his specific needs.</p>
+</section>
+</main>
+<footer>Made with love for Lisa's new Bichon 🐾</footer>
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+<script>
+const $=id=>document.getElementById(id);
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 
-            document.getElementById("cd-days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("cd-hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("cd-mins").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("cd-secs").innerText = seconds.toString().padStart(2, '0');
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+/* Countdown */
+let target;
+(function(){
+  let t=store.get('goHome',null);
+  if(!t){const x=new Date();x.setDate(x.getDate()+35);x.setHours(9,0,0,0);t=x.getTime();store.set('goHome',t)}
+  target=new Date(t);
+  const dt=new Date(t);
+  $('date').value=dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
+})();
+$('date').onchange=e=>{
+  if(!e.target.value)return;
+  const [y,m,d]=e.target.value.split('-').map(Number);
+  target=new Date(y,m-1,d,9,0,0);store.set('goHome',target.getTime());tick();
+};
+function tick(){
+  let ms=Math.max(0,target-new Date());
+  $('d').textContent=Math.floor(ms/864e5);
+  $('h').textContent=String(Math.floor(ms%864e5/36e5)).padStart(2,'0');
+  $('m').textContent=String(Math.floor(ms%36e5/6e4)).padStart(2,'0');
+  $('s').textContent=String(Math.floor(ms%6e4/1e3)).padStart(2,'0');
+}
+setInterval(tick,1000);tick();
 
-        // 2. ELEGANT NAME GENERATOR
-        const namePool = [
-            "Arthur", "Alistair", "Archie", "Beau", "Barnaby", "Bastian", "Benedict", "Benoit", 
-            "Charles", "Chester", "Caspian", "Cecil", "Claude", "Darcy", "Dexter", "Edwin", 
-            "Edgar", "Felix", "Finn", "Gatsby", "Gideon", "Hugo", "Henry", "Jasper", "Julian", 
-            "Louis", "Lucian", "Milo", "Miles", "Monty", "Niles", "Oliver", "Orson", "Pierre", 
-            "Percival", "Quincy", "Rupert", "Rowan", "Silas", "Sebastian", "Theodore", "Tristan", 
-            "Victor", "Winston", "Wesley", "Buster", "Charlie", "Cooper", "Murphy", "Ollie",
-            "Toby", "Teddy", "Oscar", "Mac", "Leo", "Gus", "Finn", "Dexter", "Bandit", "Auggie"
-        ];
+/* Names: lists plus combiners give thousands of options */
+const P={
+ classic:["Arthur","Henry","Oliver","Theo","Louis","Felix","Hugo","Jasper","Oscar","Charlie","Teddy","Milo","Leo","Finn","Max","Sam","Jack","Ollie","Gus","Archie","Walter","Otis","Rocco","Ziggy","Beau","Cooper","Murphy","Toby","Rufus","Buddy","Winston","Monty","Rory","Benny","Percy","Louie","Duke","Hank","Chester","Barney"],
+ food:["Biscuit","Waffles","Pancake","Muffin","Cookie","Noodle","Meatball","Peanut","Pretzel","Popcorn","Nacho","Taco","Bagel","Dumpling","Cupcake","Marshmallow","Coconut","Mochi","Tofu","Pudding","Gnocchi","Cheddar","Brie","Tater","Biscotti","Churro","Beignet","Cannoli","Fudge","Latte","Espresso","Mocha","Sprinkles","Butterscotch","Cashew","Almond","Pickle","Oreo","Smore","Crouton"],
+ fluffy:["Cloud","Puff","Snowball","Cotton","Fluff","Snowy","Pom Pom","Powder","Frost","Marshmallow","Dandelion","Cotton Ball","Fuzzy","Pillow","Cuddles","Q-tip","Whipped","Flurry","Snowflake","Cumulus","Bubbles","Fleece","Teddy Bear","Mop","Floof","Nimbus","Alpine","Blizzard","Yeti","Polar"],
+ french:["Pierre","Louis","Jacques","Henri","Gaston","Beau","Remy","Andre","Jean","Marcel","Etienne","Basil","Fabien","Gustave","Lucien","Claude","Philippe","Olivier","Alfie","Antoine","Dijon","Bordeaux","Paris","Marseille","Lyon","Pascal","Rene","Sacha","Theo","Yves"],
+ funny:["Sir Barksalot","Captain Fluff","Fuzzbucket","Wiggles","Chonk","Nugget","Bean","Waldo","Tank","Meatloaf","Sir Reginald","Bark Twain","Fluffernutter","Snuggles","Zoomie","Professor Poof","Kevin","Gary","Doug","Moose","Bingo","Boomer","Turbo","Wookie","Dobby","Hobbit","Bubba","Biff","Spud","Dude"],
+ outdoors:["Aspen","Denver","Ranger","Willow","Sawyer","Bear","Atlas","River","Cedar","Maverick","Ridge","Boone","Summit","Hudson","Jasper","Forrest","Timber","Birch","Scout","Koda","Sierra","Tahoe","Everest","Rocky","Shadow","Sunny","Rowan","Wyatt","Colt","Gunner"]
+};
+const A={
+ fluffy:["Fluffy","Puffy","Snowy","Cotton","Mr.","Little","Sir","Captain","Baby","Big","Lord","Count"],
+ B:["Bear","Bean","Biscuit","Button","Bubba","Pickle","Muffin","Pop","Noodle","Nugget","Cloud","Puff","Bun","Bug","Boy"]
+};
+const cats={all:"Surprise me",classic:"Classic",food:"Food",fluffy:"Fluffy",french:"French",funny:"Funny",outdoors:"Outdoorsy",mix:"Mix-ups"};
+let sel='all';
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+function mixup(){
+  const r=Math.random();
+  if(r<.34)return pick(A.fluffy)+(pick(A.fluffy).endsWith('.')?' ':' ')+pick(P.classic);
+  if(r<.67)return pick(P.classic)+' '+pick(["the Great","Jr.","Bean","Biscuit","Bear","McFluff","von Puff","Floofington"]);
+  const x=pick(P.food),y=pick(P.fluffy);return x.length<9&&y.length<8?x+y.toLowerCase():pick(P.food)+' '+pick(["Bear","Bean","Pop","Bug"]);
+}
+function one(){
+  let c=sel;
+  if(c==='all')c=pick(Object.keys(P).concat(['mix']));
+  return c==='mix'?mixup():pick(P[c]);
+}
+let shown=[];
+function gen(){
+  const s=new Set();let n=0;
+  while(s.size<10&&n++<200)s.add(one());
+  shown=[...s];renderNames();
+}
+let faves=store.get('faves',[]);
+function renderNames(){
+  $('out').innerHTML=shown.map(n=>`<div class="name"><span>${n}</span><button data-n="${n}" aria-label="Save ${n}">${faves.includes(n)?'♥':'♡'}</button></div>`).join('');
+}
+function renderFaves(){
+  $('faves').innerHTML=faves.length?faves.map(n=>`<span class="fave">${n}<button data-r="${n}" aria-label="Remove ${n}">×</button></span>`).join(''):'<p class="empty">Nothing saved yet. Tap a ♡ above.</p>';
+}
+$('out').onclick=e=>{const n=e.target.dataset.n;if(!n)return;
+  faves=faves.includes(n)?faves.filter(x=>x!==n):[...faves,n];store.set('faves',faves);renderNames();renderFaves()};
+$('faves').onclick=e=>{const n=e.target.dataset.r;if(!n)return;faves=faves.filter(x=>x!==n);store.set('faves',faves);renderNames();renderFaves()};
+$('chips').innerHTML=Object.entries(cats).map(([k,v])=>`<button class="chip${k==='all'?' on':''}" data-k="${k}">${v}</button>`).join('');
+$('chips').onclick=e=>{const k=e.target.dataset.k;if(!k)return;sel=k;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.dataset.k===k));gen()};
+$('gen').onclick=gen;
 
-        let currentDropdownNames = [];
-        let heartedNames = [];
+/* Growth stages: link to real photo searches so nothing breaks */
+const stages=[
+ ["🍼","Week 3","Eyes open","Eyes and ears are opening. Shaky first steps and first play with littermates.","3 week old bichon frise puppy","var(--sky)"],
+ ["🥣","Weeks 4 to 5","Soft food and play","Starts lapping soft food and learns manners from littermates.","5 week old bichon frise puppy","var(--sun)"],
+ ["🏠","Week 8","Coming home","Weaned and ready to join Lisa. Time for crate training and potty training.","8 week old bichon frise puppy","var(--coral)"],
+ ["🦷","Months 3 to 5","Teething","Adult teeth come in. Great time for leash practice and basic commands.","4 month old bichon frise puppy","var(--mint)"],
+ ["✂️","Months 6 to 9","Coat change","Puppy fluff turns into the curly adult coat. Daily brushing matters.","7 month old bichon frise","var(--sky)"],
+ ["🌟","1 year","All grown up","Full size, usually 12 to 18 lbs, with the classic powder-puff look.","adult bichon frise dog","var(--sun)"]
+];
+$('stages').innerHTML=stages.map(s=>`<div class="card stage" style="--c:${s[5]}"><div class="emoji">${s[0]}</div><div><small>${s[1]}</small><h3>${s[2]}</h3><p>${s[3]}</p><a href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(s[4])}" target="_blank" rel="noopener">See photos</a></div></div>`).join('');
 
-        function generate25MoreNames() {
-            const shuffled = [...namePool].sort(() => 0.5 - Math.random());
-            currentDropdownNames = shuffled.slice(0, 25);
-            
-            const select = document.getElementById('boy-name-select');
-            select.innerHTML = '';
-            
-            currentDropdownNames.forEach(name => {
-                const opt = document.createElement('option');
-                opt.value = name;
-                opt.innerText = name;
-                select.appendChild(opt);
-            });
-        }
+/* Walk calculator */
+function walk(){const a=+$('age').value;$('walk').textContent=a>=12?'30 to 45 min':(a*5)+' min per walk'}
+$('age').onchange=walk;walk();
 
-        function heartSelectedName() {
-            const select = document.getElementById('boy-name-select');
-            const selected = select.value;
-            if (!selected) return;
-
-            if (!heartedNames.includes(selected)) {
-                heartedNames.push(selected);
-                renderHeartedNames();
-            }
-        }
-
-        function removeHeartedName(nameToRemove) {
-            heartedNames = heartedNames.filter(name => name !== nameToRemove);
-            renderHeartedNames();
-        }
-
-        function renderHeartedNames() {
-            const list = document.getElementById('hearted-names-list');
-            list.innerHTML = '';
-
-            if (heartedNames.length === 0) {
-                list.innerHTML = `<p class="col-span-full text-xs font-sans text-slate-400 italic">No names hearted yet.</p>`;
-                return;
-            }
-
-            heartedNames.forEach(name => {
-                const item = document.createElement('div');
-                item.className = "flex items-center justify-between bg-white border border-elegant p-3 shadow-sm";
-                item.innerHTML = `
-                    <span class="font-serif text-slate-900">${name}</span>
-                    <button onclick="removeHeartedName('${name}')" class="text-taupe-500 hover:text-slate-900 transition p-1">
-                        <i class="fa-solid fa-trash-can text-sm"></i>
-                    </button>
-                `;
-                list.appendChild(item);
-            });
-        }
-
-        // 3. EXERCISE CALCULATOR
-        function calculateExercise() {
-            const age = parseInt(document.getElementById('age-select').value);
-            const res = document.getElementById('exercise-result');
-            if (age === 12) {
-                res.innerText = "30-45 Mins / Walk";
-            } else {
-                res.innerText = `${age * 5} Mins / Walk`;
-            }
-        }
-
-        // 4. LIGHTBOX
-        function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
-            lightbox.classList.remove('hidden');
-            lightbox.classList.add('flex');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.add('hidden');
-            lightbox.classList.remove('flex');
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-
-        // Initialization
-        window.onload = function() {
-            generate25MoreNames();
-            renderHeartedNames();
-        }
-    </script>
+gen();renderFaves();
+</script>
 </body>
 </html>
-```
